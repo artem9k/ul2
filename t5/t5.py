@@ -14,7 +14,6 @@
 # limitations under the License.
 """ PyTorch T5 model."""
 
-
 import copy
 import math
 import os
@@ -66,7 +65,6 @@ T5_PRETRAINED_MODEL_ARCHIVE_LIST = [
     "t5-11b",
     # See all T5 models at https://huggingface.co/models?filter=t5
 ]
-
 
 ####################################################
 # This is a conversion method from TF 1.0 to PyTorch

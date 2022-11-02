@@ -25,8 +25,13 @@ I will use either BIG-bench or [this](https://github.com/EleutherAI/lm-evaluatio
 - [ ] Memory efficient [attention](https://github.com/basujindal/stable-diffusion/pull/103)
 
 ### Optimizations (Stolen from Automatic1111)
-
 A number of optimization can be enabled by [commandline arguments](Run-with-Custom-Parameters):
+
+### Running inference 
+```
+python3 setup.py develop
+python3 run.py
+```
 
 | commandline argument           | explanation                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
