@@ -15,7 +15,7 @@
 """ T5 model configuration"""
 from typing import Mapping
 
-from transformers import PretrainedConfig
+from .configuration_utils import PretrainedConfig
 
 T5_PRETRAINED_CONFIG_ARCHIVE_MAP = {
     "t5-small": "https://huggingface.co/t5-small/resolve/main/config.json",
