@@ -1374,6 +1374,20 @@ class T5ForConditionalGeneration(T5PreTrainedModel):
         self.model_parallel = False
         self.device_map = None
 
+        self.split_attention_enabled = False
+
+        print('t5 stack')
+        print(encoder_config)
+        print(self.encoder)
+        print(decoder_config)
+        print(self.decoder)
+
+        """
+        3 parts (encoder, decoder, lm_head)
+        why isnt this a decoder only?
+        Unlike GPT, T5 use encoder-decoder architecture. Is this why theyre good
+        """
+
     @add_start_docstrings(PARALLELIZE_DOCSTRING)
     def parallelize(self, device_map=None):
         self.device_map = (
@@ -1592,6 +1606,11 @@ class T5ForConditionalGeneration(T5PreTrainedModel):
 
             reordered_decoder_past = reordered_decoder_past + (reordered_layer_past_states,)
         return reordered_decoder_past
+
+    #### OPTIMIZATIONS
+
+    def enable_split_attention(self):
+        self.split_attention_enabled = True
 
 
 class T5EncoderModel(T5PreTrainedModel):

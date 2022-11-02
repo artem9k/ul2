@@ -21,8 +21,9 @@ I will use either BIG-bench or [this](https://github.com/EleutherAI/lm-evaluatio
 
 ###Optimizations Todo
 - [x] Model works
-- [ ] Seperately load the model, tokenizer
-- [ ] xformers
+- [ ] Seperately load the model parts
+    Model has 3 parts: encoder, decoder, lm_head (linear layer). can be loaded separately enc -> dec -> lm head
+- [ ] xformers attn instead of regular attn
 - [ ] split-attention  (Model Parallel Split Attention from [OPT/Megatron](https://arxiv.org/pdf/1909.08053.pdf)
 - [ ] many modules support. This can be achieved with weights splitting, which also solves the RAM issue
     - [ ] automatic weight splitter for pt and bin
