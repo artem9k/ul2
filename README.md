@@ -16,7 +16,7 @@ Performance meaning both inference speed and benchmark performance
 I will use either BIG-bench or [this](https://github.com/EleutherAI/lm-evaluation-harness)
 
 ###Optimizations Todo
-- [ ] Model works
+- [x] Model works
 - [ ] Seperately load the model, tokenizer
 - [ ] xformers
 - [ ] split-attention  (Model Parallel Split Attention from [OPT/Megatron](https://arxiv.org/pdf/1909.08053.pdf)

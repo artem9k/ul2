@@ -20,6 +20,8 @@ info = nvidia_smi.nvmlDeviceGetMemoryInfo(handle)
 
 used_after_load = info.used
 
+del model
+
 print(f'used before load: {used_before_load}')
 print(f'used after load: {used_after_load}')
 
