@@ -8,6 +8,10 @@ Woke: run LLMs on consumer hardware
 The eventual goal is to run the google UL2 model on a RTX3060 12GB. This should be [possible](https://github.com/basujindal/stable-diffusion/pull/103).
 Maybe inference can even be kinda fast
 
+Reference model: ```t5-v1_1-large```
+info in ```vram_profile.py```
+but ul2 is just a larger t5 with SiLU
+
 TPUs are for losers 
 
 ### Metrics
