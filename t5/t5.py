@@ -61,12 +61,12 @@ _CHECKPOINT_FOR_DOC = "t5-small"
 # for the pretrained weights provided with the models
 ####################################################
 T5_PRETRAINED_MODEL_ARCHIVE_LIST = [
-    "t5-small",
-    "t5-base",
-    "t5-large",
-    "t5-3b",
-    "t5-11b",
-    # ul20
+    "t5-v1_1-small",
+    "t5-v1_1-base",
+    "t5-v1_1-large",
+    "t5-v1_1-xl",
+    "t5-v1_1-xxl"
+    # "ul20"
     # See all T5 models at https://huggingface.co/models?filter=t5
 ]
 
