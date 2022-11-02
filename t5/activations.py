@@ -16,13 +16,9 @@ import math
 from collections import OrderedDict
 
 import torch
-from packaging import version
 from torch import Tensor, nn
 
-from .utils import logging
-
-
-logger = logging.get_logger(__name__)
+from packaging import version
 
 
 class NewGELUActivation(nn.Module):

@@ -25,16 +25,18 @@ from torch import nn
 from torch.nn import CrossEntropyLoss
 from torch.utils.checkpoint import checkpoint
 
-from ...activations import ACT2FN
-from ...modeling_outputs import (
+from .activations import ACT2FN
+
+from .modeling_outputs import (
     BaseModelOutput,
     BaseModelOutputWithPastAndCrossAttentions,
     Seq2SeqLMOutput,
     Seq2SeqModelOutput,
 )
-from ...modeling_utils import PreTrainedModel
-from ...pytorch_utils import ALL_LAYERNORM_LAYERS, find_pruneable_heads_and_indices, prune_linear_layer
-from ...utils import (
+
+from .modeling_utils import PreTrainedModel
+from .pytorch_utils import ALL_LAYERNORM_LAYERS, find_pruneable_heads_and_indices, prune_linear_layer
+from .utils import (
     DUMMY_INPUTS,
     DUMMY_MASK,
     add_start_docstrings,
@@ -43,12 +45,10 @@ from ...utils import (
     logging,
     replace_return_docstrings,
 )
-from ...utils.model_parallel_utils import assert_device_map, get_device_map
+from .utils.model_parallel_utils import assert_device_map, get_device_map
 from .configuration_t5 import T5Config
 
-
 ############## HF FUNCTIONS NEEDED FOR RUN ##################
-
 
 logger = logging.get_logger(__name__)
 

@@ -5,4 +5,4 @@ print('hello, sanity check!')
 config = None
 T5ForConditionalGeneration(config)
 
-
+print('model loaded')
