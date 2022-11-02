@@ -1,6 +1,8 @@
 ### T5 with Memory Optimizations
 This model was originally taken from Huggingface. 
+
 Broke: run LLMs on expensive server GPUs
+
 Woke: run LLMs on consumer hardware
 
 The eventual goal is to run the google UL2 model on a RTX3060 12GB. This should be [possible](https://github.com/basujindal/stable-diffusion/pull/103).
