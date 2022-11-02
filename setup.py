@@ -10,6 +10,7 @@ setup(
       install_requires=[
             'torch',
             'transformers', 
-            'accelerate'
+            'accelerate',
+            'nvidia-ml-py3'
       ],
 )
