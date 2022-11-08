@@ -5,6 +5,8 @@ without opt:
 527 mb 
 with modules:
 384 mb 
+
+in order to get a good profile, we need to profile VRAM, RAM and swap.
 """
 
 from t5.test import Test
@@ -13,8 +15,27 @@ from t5.tokenization_t5 import T5Tokenizer
 from transformers import PretrainedConfig
 import accelerate
 import nvidia_smi
+from accelerate import init_empty_weights
 
 MODEL = 'google/t5-v1_1-small'
+
+class Profiler:
+    def __init__(self, swap_folder=None):
+
+        self.vram = []
+        self.ram = []
+        self.swap = []
+
+    def measure_ram(self):
+        pass
+
+    def measure_vram(self):
+        pass
+
+    def measure_swap(self):
+        
+    def profile_start():
+    `   
 
 def load_tokenizer():
     tok = T5Tokenizer.from_pretrained(MODEL, use_fast=True)
@@ -59,26 +80,31 @@ def profile_with_modules():
     used_before_load = info.used
 
     # create model from pretrained
-    model = T5ForConditionalGeneration.from_pretrained(MODEL)
+    with init_empty_weights():
+        model = T5ForConditionalGeneration.from_pretrained(MODEL)
+
     info = nvidia_smi.nvmlDeviceGetMemoryInfo(handle)
 
     model.encoder.to('cuda')
     #model.run_encoder()
     info = nvidia_smi.nvmlDeviceGetMemoryInfo(handle)
     used_after_encoder = info.used
-    model.encoder.to('cpu')
+    del model.encoder
+    #model.encoder.to('cpu')
 
     model.decoder.to('cuda')
     #model.run_decoder()
     info = nvidia_smi.nvmlDeviceGetMemoryInfo(handle)
     used_after_decoder = info.used
-    model.decoder.to('cpu')
+    del model.decoder
+    #model.decoder.to('cpu')
 
     model.lm_head.to('cuda')
     #model.run_head()
     info = nvidia_smi.nvmlDeviceGetMemoryInfo(handle)
     used_after_head = info.used
-    model.lm_head.to('cpu')
+    del model.lm_head
+    #model.lm_head.to('cpu')
 
     used_max = max(used_after_encoder, used_after_decoder, used_after_head)
 
